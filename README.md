@@ -45,3 +45,23 @@ All content lives in `src/data/`:
 6. **Services**: add confirmed services to `src/data/services.ts` with `status: "verified"`.
 
 Placement content is intentionally absent until the company confirms its scope and terms.
+
+## Deploying to GitHub Pages
+
+The workflow in `.github/workflows/deploy.yml` builds the site and publishes it on every push
+to `main`.
+
+1. Push this project to a GitHub repository (branch `main`).
+2. In the repository, open **Settings > Pages** and set **Source** to **GitHub Actions**.
+3. Push again, or run the workflow from the **Actions** tab. The site URL appears in the
+   workflow run when it finishes.
+
+The workflow sets `PAGES_BASE_PATH` for you, so the site works at
+`https://<user>.github.io/<repo>/`. `public/.nojekyll` stops GitHub from hiding the `_next`
+folder.
+
+To upload the files by hand instead, build with the sub-path and upload the contents of `out/`:
+
+```bash
+PAGES_BASE_PATH=/<repo> npm run build
+```
