@@ -23,7 +23,7 @@ export const contact = {
   },
   location: "Vasai, Maharashtra, India", // verified registered location
   /** Verified Google Maps link. Keep null until the company supplies one. */
-  mapUrl: "https://share.google/NsXcpDerqP23I9R1d",
+  mapUrl: "https://maps.app.goo.gl/KzDq4AkvMcg3atW9A",
 };
 
 /**
