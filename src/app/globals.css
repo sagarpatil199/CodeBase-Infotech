@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ---------- Colour tokens ---------- */
+:root {
+  --bg: #f5f7fe;
+  --surface: #ffffff;
+  --surface-2: #eaeffc;
+  --line: #d3dbf3;
+  --ink: #0a1030;
+  --muted: #485378;
+  --blue: #1f55f0;
+  --cyan: #0b8fb0;
+  --violet: #6a57ee;
+  --glow: rgb(47 107 255 / 0.1);
+  --danger: #c0264a;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #060a1e;
+  --surface: #0b1230;
+  --surface-2: #111a41;
+  --line: #1f2b5e;
+  --ink: #eef2ff;
+  --muted: #9ba7d1;
+  --blue: #5c88ff;
+  --cyan: #3fd8f4;
+  --violet: #a094ff;
+  --glow: rgb(47 107 255 / 0.22);
+  --danger: #ff7d9a;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-blue: var(--blue);
+  --color-cyan: var(--cyan);
+  --color-violet: var(--violet);
+  --color-danger: var(--danger);
+  --color-solid: #2459f5;
+  --font-display: "Sora Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans:
+    "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+}
+
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: #2459f5;
+  color: #fff;
+}
+
+@layer components {
+  /* ---------- Layout helpers ---------- */
+  .wrap {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .wrap {
+      padding-inline: 2rem;
+    }
+  }
+
+  .band {
+    padding-block: 4.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .band {
+      padding-block: 7rem;
+    }
+  }
+
+  .h2 {
+    font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem);
+    font-weight: 600;
+  }
+
+  .lede {
+    color: var(--muted);
+    font-size: 1.125rem;
+    max-width: 38rem;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 3.25rem;
+    padding-inline: 1.75rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .btn:active {
+    transform: translateY(1px);
+  }
+
+  .btn-primary {
+    background: #2459f5;
+    color: #fff;
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.25),
+      0 10px 30px -10px rgb(36 89 245 / 0.75);
+  }
+
+  .btn-primary:hover {
+    background: #1746dc;
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.25),
+      0 14px 34px -8px rgb(36 89 245 / 0.85);
+  }
+
+  .btn-quiet {
+    border: 1px solid var(--line);
+    color: var(--ink);
+    background: var(--surface);
+  }
+
+  .btn-quiet:hover {
+    border-color: var(--blue);
+  }
+
+  .btn-sm {
+    height: 2.75rem;
+    padding-inline: 1.25rem;
+    font-size: 0.9375rem;
+  }
+
+  /* ---------- Tech chip ---------- */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 0.25rem 0.625rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+}
+
+/* ---------- Hero backdrop: one glow, one faint grid ---------- */
+.hero-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 32rem at 78% 8%, var(--glow), transparent 65%),
+    linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 100% 4rem,
+    linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 4rem 100%;
+  mask-image: radial-gradient(70rem 36rem at 70% 0%, #000 20%, transparent 75%);
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Pulse travelling down the project stack connector on hover */
+@keyframes flow {
+  from {
+    transform: translate(-50%, 0);
+  }
+  to {
+    transform: translate(-50%, 2rem);
+  }
+}
