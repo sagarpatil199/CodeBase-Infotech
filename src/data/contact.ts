@@ -14,8 +14,8 @@
  */
 export const contact = {
   phone: {
-    value: "+91 90000 00000", // DEMO placeholder
-    isDemo: true,
+    value: "+91 9739606972", // DEMO placeholder
+    isDemo: false,
   },
   email: {
     value: "Hemant.Bamane@codebase-infotech.com",
@@ -23,7 +23,7 @@ export const contact = {
   },
   location: "Vasai, Maharashtra, India", // verified registered location
   /** Verified Google Maps link. Keep null until the company supplies one. */
-  mapUrl: null as string | null,
+  mapUrl: "https://share.google/NsXcpDerqP23I9R1d",
 };
 
 /**
