@@ -13,22 +13,35 @@ export function ProgrammePanel({
 }) {
   return (
     <div className="border-line bg-surface grid overflow-hidden rounded-3xl border lg:grid-cols-[1.35fr_1fr]">
-      <div className="p-7 sm:p-10 lg:p-12">
-        <p className="text-cyan font-medium">Featured programme</p>
-        <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
+      <div className="p-6 sm:p-10 lg:p-12">
+        <p className="text-cyan text-[0.9375rem] font-medium sm:text-base">
+          Featured programme
+        </p>
+        <h2 className="mt-3 text-[1.625rem] font-semibold sm:text-4xl">
           {course.name}
         </h2>
-        <p className="text-muted mt-4 max-w-xl text-lg">{course.outcome}</p>
+        <p className="text-muted mt-3 max-w-xl sm:mt-4 sm:text-lg">
+          {course.outcome}
+        </p>
 
-        <ul className="mt-7 flex flex-wrap gap-2">
+        <ol
+          aria-label="Learning stages"
+          className="border-line mt-7 grid border-t sm:grid-cols-2 sm:gap-x-8"
+        >
           {course.stages.map((stage) => (
-            <li key={stage.number} className="chip">
-              {stage.title}
+            <li
+              key={stage.number}
+              className="border-line flex items-baseline gap-3 border-b py-3 text-[0.9375rem]"
+            >
+              <span className="text-cyan font-mono text-xs">
+                {stage.number}
+              </span>
+              <span className="font-medium">{stage.title}</span>
             </li>
           ))}
-        </ul>
+        </ol>
 
-        <div className="mt-9 flex flex-wrap gap-3">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <Link href={routes.enroll} className="btn btn-primary">
             Enroll Now
           </Link>
@@ -45,26 +58,26 @@ export function ProgrammePanel({
         </div>
       </div>
 
-      <div className="border-line bg-surface-2 border-t p-7 sm:p-10 lg:border-t-0 lg:border-l lg:p-12">
-        <dl className="grid grid-cols-2 gap-6">
+      <div className="border-line bg-surface-2 border-t p-6 sm:p-10 lg:border-t-0 lg:border-l lg:p-12">
+        <dl className="grid grid-cols-2 gap-4 sm:gap-6">
           <div>
             <dt className="text-muted text-sm">Duration</dt>
-            <dd className="font-display mt-1 text-3xl font-semibold">
+            <dd className="font-display mt-1 text-2xl font-semibold sm:text-3xl">
               {course.duration}
             </dd>
           </div>
           <div>
             <dt className="text-muted text-sm">Total fee</dt>
-            <dd className="font-display mt-1 text-3xl font-semibold">
+            <dd className="font-display mt-1 text-2xl font-semibold sm:text-3xl">
               {formatFee(course.fee)}
             </dd>
           </div>
         </dl>
 
-        <h3 className="border-line mt-8 border-t pt-7 font-sans text-base font-semibold tracking-normal">
+        <h3 className="border-line mt-6 border-t pt-6 font-sans text-base font-semibold tracking-normal sm:mt-8 sm:pt-7">
           Payment options
         </h3>
-        <ul className="mt-4 flex flex-col gap-3">
+        <ul className="mt-4 flex flex-col gap-3 text-[0.9375rem] sm:text-base">
           {course.paymentOptions.map((option) => (
             <li key={option} className="flex items-start gap-3">
               <Check

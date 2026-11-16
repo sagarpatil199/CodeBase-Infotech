@@ -41,7 +41,7 @@ function Segment() {
     <span
       ref={ref}
       aria-hidden="true"
-      className="bg-line absolute top-9 left-1/2 h-full w-0.5 -translate-x-1/2 rounded-full"
+      className="bg-line absolute top-8 left-1/2 h-full w-0.5 -translate-x-1/2 rounded-full sm:top-9"
     >
       <motion.span
         className="from-blue via-cyan to-violet absolute inset-0 origin-top rounded-full bg-gradient-to-b"
@@ -78,12 +78,12 @@ function Stage({
     <li
       ref={ref}
       data-reached={reached}
-      className="group grid grid-cols-[3rem_1fr] gap-x-4 pb-6 last:pb-0 sm:gap-x-8"
+      className="group grid grid-cols-[2.5rem_1fr] gap-x-3 pb-5 last:pb-0 sm:grid-cols-[3rem_1fr] sm:gap-x-8 sm:pb-6"
     >
       {/* Node and connector */}
       <div className="relative">
         {!isLast && (reduce ? <StaticSegment /> : <Segment />)}
-        <span className="border-line bg-bg text-muted group-data-[reached=true]:from-blue group-data-[reached=true]:to-cyan relative z-10 mt-3 grid size-12 place-items-center rounded-full border font-mono text-sm transition-all duration-500 group-data-[reached=true]:border-transparent group-data-[reached=true]:bg-gradient-to-br group-data-[reached=true]:text-white group-data-[reached=true]:shadow-[0_0_0_6px_rgb(63_216_244/0.12),0_0_28px_rgb(47_107_255/0.55)]">
+        <span className="border-line bg-bg text-muted group-data-[reached=true]:from-blue group-data-[reached=true]:to-cyan relative z-10 mt-3 grid size-10 place-items-center rounded-full border font-mono text-xs transition-all duration-500 group-data-[reached=true]:border-transparent group-data-[reached=true]:bg-gradient-to-br group-data-[reached=true]:text-white group-data-[reached=true]:shadow-[0_0_0_6px_rgb(63_216_244/0.12),0_0_28px_rgb(47_107_255/0.55)] sm:size-12 sm:text-sm">
           {stage.number}
           {reached && !reduce && (
             <motion.span
@@ -98,7 +98,7 @@ function Stage({
       </div>
 
       {/* Stage card */}
-      <div className="border-line bg-surface/40 group-data-[reached=true]:border-cyan/35 group-data-[reached=true]:from-surface-2 group-data-[reached=true]:to-surface relative overflow-hidden rounded-2xl border p-6 opacity-55 transition-all duration-700 group-data-[reached=true]:bg-gradient-to-br group-data-[reached=true]:opacity-100 group-data-[reached=true]:shadow-[0_24px_60px_-30px_rgb(47_107_255/0.6)] sm:p-8">
+      <div className="border-line bg-surface/40 group-data-[reached=true]:border-cyan/35 group-data-[reached=true]:from-surface-2 group-data-[reached=true]:to-surface relative overflow-hidden rounded-2xl border p-5 opacity-55 transition-all duration-700 group-data-[reached=true]:bg-gradient-to-br group-data-[reached=true]:opacity-100 group-data-[reached=true]:shadow-[0_24px_60px_-30px_rgb(47_107_255/0.6)] sm:p-8">
         <span
           aria-hidden="true"
           className="font-display pointer-events-none absolute -top-4 right-4 hidden text-[7.5rem] leading-none font-bold text-transparent transition-all duration-700 [-webkit-text-stroke:1px_var(--line)] group-data-[reached=true]:[-webkit-text-stroke-color:rgb(63_216_244/0.3)] sm:block"
@@ -109,10 +109,12 @@ function Stage({
           <p className="text-muted group-data-[reached=true]:text-cyan text-sm font-medium transition-colors duration-500">
             Stage {stage.number}
           </p>
-          <h3 className="mt-1.5 text-2xl font-semibold sm:text-[1.75rem]">
+          <h3 className="mt-1.5 text-xl font-semibold sm:text-[1.75rem]">
             {stage.title}
           </h3>
-          <p className="text-muted mt-2 max-w-md">{stage.summary}</p>
+          <p className="text-muted mt-2 max-w-md text-[0.9375rem] sm:text-base">
+            {stage.summary}
+          </p>
           <ul className="mt-5 flex flex-wrap gap-2">
             {stage.technologies.map((tech, i) => (
               <li
@@ -137,7 +139,7 @@ function StaticSegment() {
   return (
     <span
       aria-hidden="true"
-      className="from-blue via-cyan to-violet absolute top-9 left-1/2 h-full w-0.5 -translate-x-1/2 rounded-full bg-gradient-to-b"
+      className="from-blue via-cyan to-violet absolute top-8 left-1/2 h-full w-0.5 -translate-x-1/2 rounded-full bg-gradient-to-b sm:top-9"
     />
   );
 }

@@ -173,6 +173,13 @@ p {
     border-color: var(--blue);
   }
 
+  /* Phones: buttons fill the row so stacked buttons line up */
+  @media (max-width: 639px) {
+    .btn {
+      width: 100%;
+    }
+  }
+
   .btn-sm {
     height: 2.75rem;
     padding-inline: 1.25rem;

@@ -9,7 +9,7 @@ import { learningStages } from "@/data/technologies";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: `${company.brandName} is an ${company.instituteType.toLowerCase()} in ${company.location.display}, focused on practical and job-oriented learning.`,
+  description: `${company.brandName} is an ${company.instituteType} in ${company.location.display}, focused on practical and job-oriented learning.`,
   alternates: { canonical: routes.about },
 };
 
@@ -40,7 +40,7 @@ export default function AboutPage() {
         <div>
           <p className="text-xl">{company.introduction}</p>
           <p className="text-muted mt-5">
-            We are an {company.instituteType.toLowerCase()} based in{" "}
+            We are an {company.instituteType} based in{" "}
             {company.location.display}. {company.primaryBusiness} is our primary
             business, and we also offer{" "}
             {company.secondaryBusiness.toLowerCase()}.

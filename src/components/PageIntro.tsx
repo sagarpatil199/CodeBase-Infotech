@@ -19,7 +19,9 @@ export function PageIntro({
         </h1>
         <p className="lede mt-6 sm:text-xl">{lede}</p>
         {children && (
-          <div className="mt-9 flex flex-wrap gap-3">{children}</div>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            {children}
+          </div>
         )}
       </div>
     </section>

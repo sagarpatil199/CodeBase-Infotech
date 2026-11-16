@@ -21,13 +21,14 @@ export default function HomePage() {
             <p className="font-display text-cyan text-lg font-medium">
               {company.tagline}
             </p>
-            <h1 className="mt-5 text-[2.5rem] font-semibold sm:text-6xl lg:text-[4.25rem]">
-              Build Your IT Career with Industry-Ready Skills
+            <h1 className="mt-5 text-[2.5rem] font-semibold sm:text-6xl lg:text-[3.5rem] xl:text-[4.25rem]">
+              Build Your IT Career with{" "}
+              <span className="whitespace-nowrap">Industry-Ready</span> Skills
             </h1>
             <p className="text-muted mt-6 max-w-xl text-xl">
               {featuredCourse.outcome}
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link href={routes.enroll} className="btn btn-primary">
                 Enroll Now
               </Link>
