@@ -31,6 +31,14 @@ All content lives in `src/data/`:
 | `contact.ts`      | Phone, email, location, map link, enquiry delivery flag       |
 | `navigation.ts`   | Header and footer links                                       |
 
+## Logo
+
+The logo lives in `src/assets/brand/` as four WebP files: `logo-light` and `logo-dark` (header,
+without the tagline) and `logo-full-light` and `logo-full-dark` (footer, with "IT Training
+Institute"). The dark versions have white "CodeBase" lettering for the dark theme. The favicon is
+`src/app/icon.png`, with `src/app/apple-icon.png` for iPhone home screens. To change the logo,
+replace these files with the same names.
+
 ## Before going live
 
 1. **Phone**: `src/data/contact.ts` holds a demo phone number. Replace `phone.value`, then set

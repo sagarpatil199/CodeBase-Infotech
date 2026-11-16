@@ -9,7 +9,7 @@ export function Footer() {
     <footer className="border-line bg-surface border-t">
       <div className="wrap grid gap-12 py-16 lg:grid-cols-[1.3fr_1.8fr_1.4fr]">
         <div>
-          <Logo />
+          <Logo variant="full" className="h-auto w-56 sm:w-64" />
           <p className="text-muted mt-5 max-w-sm text-[0.9375rem]">
             {company.introduction}
           </p>
