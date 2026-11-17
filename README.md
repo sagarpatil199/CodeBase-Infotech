@@ -42,7 +42,7 @@ replace these files with the same names.
 ## Before going live
 
 1. **Phone**: `src/data/contact.ts` holds a demo phone number. Replace `phone.value`, then set
-   `phone.isDemo: false`. The email (Hemant.Bamane@codebase-infotech.com) is real.
+   `phone.isDemo: false`. The email (example@codebase-infotech.com) is real.
 2. **Enquiry form**: a valid submission opens the visitor's email app with the enquiry
    pre-filled and addressed to `enquiryDelivery.to`. To receive enquiries without the visitor's
    email app, connect a form delivery service in `src/components/EnquiryForm.tsx`.
